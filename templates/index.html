@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'plugn/boostrap.css' %}">
+    <script src="{% static 'plugn/jquery.min.js' %}"></script>
+    <script src="{% static 'plugn/popper.min.js' %}"></script>
+    <script src="{% static 'plugn/boostrap.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.0/moment.min.js"></script>
+    <link rel="stylesheet" href="{% static 'plugn/leaflet.css' %} "/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+    <title>mchongo job</title>
+    <style>
+      @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+    .color{
+      background-color:#2852fe;
+      }
+html,body {
+  font-family: "Bitter", serif;}
+.loader {
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-top: 8px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  z-index: 2000002;
+  position: absolute;
+  left: 50%;
+  top:60%;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+    </style>
+</head>
+<body>
+  <div class="container">
+    <h3 class="text-center">Mchongo Job  Restful API Documentation!</h3><hr>
+     <dt>1 Step:</dt>
+      <dd>-Create Access token by Using Username & Password ,default Username & Password</dd>
+        <dt>Copy this link: <input type="text" id="tokenLink" value="http://127.0.0.1:8000/api/token/"> <button class="btn" data-toggle="tooltip" title="Copy link" id="copyToken">Copy</button></dt>
+      <ul>
+        <li>Username: &nbsp;user</li>
+        <li>Password: &nbsp;12345</li>
+      </ul>
+
+      <dt>2 Step:</dt>
+       <dd>- Use Token to Access this API Links , Make GET,POST request </dd>
+       <dt>Copy this link: <textarea id="apiLink" class="form-control">
+        http://127.0.0.1:8000/api/location/
+        http://127.0.0.1:8000/api/address/
+        http://127.0.0.1:8000/api/jobdetails/
+        http://127.0.0.1:8000/api/email/
+        </textarea><button class="btn" data-toggle="tooltip" title="Copy link" id="copyLink">Copy</button></dt>
+
+        <dt>FeedBack </dt>
+        <dd><a href="https://chat.whatsapp.com/CARsKUarCpFHCR1mxGfpdZ"><button class="btn bg-primary border-outline-primary text-white">Whatsapp Group Link!</button> </a></dd>
+  </div>
+</body>
+<script>
+  $(document).ready(function(){
+    let tokenLink = $('#tokenLink').val();
+    let apiLink = $('#apiLink').val();
+
+   $('#copyLink').on('click',()=>{
+    $(this).select();
+    writeText(apiLink);
+    $('[data-toggle="tooltip"]').tooltip({title: 'Goodbye'}).tooltip('show');
+   });
+ $('#copyToken').on('click',()=>{
+  $(this).select();
+  writeText(tokenLink);
+ });
+    $('[data-toggle="tooltip"]').tooltip();
+
+
+    function writeText(text){
+      navigator.clipboard.writeText(text);
+    }
+  });
+
+  </script>
+</html>
