@@ -21,10 +21,11 @@ cd Mchongo-Job-backend-Restful-Api-Django
 ```
 pip install requirements.txt
 ```
-# Finally Run
+# ✅Finally Run
 ```
 python manage.py run server
 
 ```
+
 
 
